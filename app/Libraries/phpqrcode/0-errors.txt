@@ -1,0 +1,1 @@
+2020-11-23 11:57:28: imagepng(): Invalid 2nd parameter, it must a filename or a stream

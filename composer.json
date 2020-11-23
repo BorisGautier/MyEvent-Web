@@ -44,7 +44,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "classmap": [
+            "app/Libraries/phpqrcode"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

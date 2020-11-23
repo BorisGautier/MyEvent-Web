@@ -27,3 +27,7 @@ Route::post('register/twitter', [App\Http\Controllers\Auth\SocialApiAuthTwitterC
 Route::get('email/verify/{id}', [App\Http\Controllers\Auth\VerificationController::class, 'verify'])->name('verification.verify'); // Make sure to keep this as your route name
 
 Route::get('email/resend', [App\Http\Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
+
+Route::middleware('auth:api')->group(function () {
+    Route::resource('event', App\Http\Controllers\EventController::class);
+});

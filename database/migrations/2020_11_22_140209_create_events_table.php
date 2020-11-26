@@ -15,12 +15,12 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('codeEvent');
+            $table->string('codeEvent')->unique();
             $table->date('dateEvent');
             $table->integer('idUser');
             $table->integer('nbrePackage')->default(0);
             $table->integer('nbrePlace')->default(0);
-            $table->string('nomEvent')->unique();
+            $table->string('nomEvent');
             $table->string('urlZip')->nullable();
             $table->timestamps();
         });

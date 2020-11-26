@@ -26,9 +26,11 @@ class EventController extends BaseController
     {
         $user = Auth::user();
 
-        $events = Event::where("idUser", $user->id);
+        $events = Event::where("idUser", $user->id)->get();
 
-        return $this->sendResponse($events, 'Liste des Evenements');
+        $success["event"] = $events;
+
+        return $this->sendResponse($success, 'Liste des Evenements');
     }
 
     /**
@@ -129,7 +131,9 @@ class EventController extends BaseController
                 $user->passRestant = $user->passRestant - $nbreP;
                 $user->save();
 
-                return $this->sendResponse($event, "Création de l'évènement reussie");
+                $success["event"] = $event;
+
+                return $this->sendResponse($success, "Création de l'évènement reussie");
             } else {
                 return $this->sendError("Erreur de Création.", ['error' => 'Unauthorised']);
             }
@@ -144,9 +148,19 @@ class EventController extends BaseController
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show()
     {
-        //
+    }
+
+    public function showEvent(Request $request)
+    {
+
+        $codeEvent = $request->codeEvent;
+        $event = Event::where("codeEvent", $codeEvent)->first();
+
+        $success["event"] = $event;
+
+        return $this->sendResponse($success, "Evenement");
     }
 
     /**
@@ -178,9 +192,38 @@ class EventController extends BaseController
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy()
     {
-        //
+    }
+
+    public function deleteEvent(Request $request)
+    {
+        $codeEvent = $request->codeEvent;
+        $event = Event::where("codeEvent", $codeEvent)->first();
+
+        $eventDestroy =  Event::destroy($event->id);
+
+        if ($eventDestroy) {
+            return $this->sendResponse("", "Suppression réussie");
+        } else {
+            return $this->sendError("Echec de Suppression", ['error' => 'Unauthorised']);
+        }
+    }
+
+    public function updateEvent(Request $request)
+    {
+        $event = new Event();
+
+        $event->dateEvent = $request->dateEvent ?? $event->dateEvent;
+
+        $save = $event->save();
+
+        if ($save) {
+            $success["event"] = $event;
+            return $this->sendResponse($success, "Evenement");
+        } else {
+            return $this->sendError("Echec de mise à jour", ['error' => 'Unauthorised']);
+        }
     }
 
     public function randomString($string, $length = 5)

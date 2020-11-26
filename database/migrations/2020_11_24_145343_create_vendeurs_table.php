@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePackagesTable extends Migration
+class CreateVendeursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('vendeurs', function (Blueprint $table) {
             $table->id();
             $table->string("codeEvent");
             $table->integer("nbreVente")->default(0);
-            $table->string("nomPackage");
-            $table->integer("prixPlace");
+            $table->string("codeVendeur");
+            $table->string("nomVendeur");
+            $table->integer("phone");
+            $table->string("fcmToken")->nullable();
+            $table->string("platform")->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('vendeurs');
     }
 }

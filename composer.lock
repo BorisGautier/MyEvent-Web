@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fedf518426d9abadf0d5c160ad0b8bc",
+    "content-hash": "a95eb6659fba3387c33defd24246bdb7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -158,6 +158,63 @@
                 }
             ],
             "time": "2020-08-18T23:57:15+00:00"
+        },
+        {
+            "name": "camoo/sms",
+            "version": "v3.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/camoo/sms.git",
+                "reference": "a1714ad5f8ea450c820d43643adf663919d54fed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/camoo/sms/zipball/a1714ad5f8ea450c820d43643adf663919d54fed",
+                "reference": "a1714ad5f8ea450c820d43643adf663919d54fed",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "giggsey/libphonenumber-for-php": "^8.10",
+                "guzzlehttp/guzzle": "^6.3",
+                "nicoswd/php-gpg": "^1.7",
+                "php": ">=7.0",
+                "vlucas/valitron": "^1.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.4"
+            },
+            "suggest": {
+                "phpunit/phpunit": "Allows automated tests to be run without system-wide install."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Camoo\\Sms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CAMOO SARL",
+                    "email": "sms@camoo.sarl"
+                }
+            ],
+            "description": "CAMOO API Packages",
+            "homepage": "https://camoo.cm",
+            "keywords": [
+                "API-SMS",
+                "CAMOO",
+                "GPG SMS encrytion",
+                "Plugin camoo sms",
+                "bulk sms",
+                "sms",
+                "sms gateway"
+            ],
+            "time": "2020-06-20T14:21:22+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -761,6 +818,123 @@
             "time": "2020-10-22T13:57:20+00:00"
         },
         {
+            "name": "giggsey/libphonenumber-for-php",
+            "version": "8.12.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/libphonenumber-for-php.git",
+                "reference": "571bbbabdab5b1cf16550cb257005bb527fa0899"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/571bbbabdab5b1cf16550cb257005bb527fa0899",
+                "reference": "571bbbabdab5b1cf16550cb257005bb527fa0899",
+                "shasum": ""
+            },
+            "require": {
+                "giggsey/locale": "^1.7",
+                "php": ">=5.3.2",
+                "symfony/polyfill-mbstring": "^1.17"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "^0.5",
+                "phing/phing": "^2.7",
+                "php-coveralls/php-coveralls": "^1.0|^2.0",
+                "phpunit/phpunit": "^4.8.36|^5.0|^7.0",
+                "symfony/console": "^2.8|^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "libphonenumber\\": "src/"
+                },
+                "exclude-from-classmap": [
+                    "/src/data/",
+                    "/src/carrier/data/",
+                    "/src/geocoding/data/",
+                    "/src/timezone/data/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "https://giggsey.com/"
+                }
+            ],
+            "description": "PHP Port of Google's libphonenumber",
+            "homepage": "https://github.com/giggsey/libphonenumber-for-php",
+            "keywords": [
+                "geocoding",
+                "geolocation",
+                "libphonenumber",
+                "mobile",
+                "phonenumber",
+                "validation"
+            ],
+            "time": "2020-11-12T14:42:30+00:00"
+        },
+        {
+            "name": "giggsey/locale",
+            "version": "1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/Locale.git",
+                "reference": "b07f1eace8072ccc61445ad8fbd493ff9d783043"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/giggsey/Locale/zipball/b07f1eace8072ccc61445ad8fbd493ff9d783043",
+                "reference": "b07f1eace8072ccc61445ad8fbd493ff9d783043",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "^0.5",
+                "phing/phing": "~2.7",
+                "php-coveralls/php-coveralls": "^1.0|^2.0",
+                "phpunit/phpunit": "^4.8|^5.0",
+                "symfony/console": "^2.8|^3.0|^4.0",
+                "symfony/filesystem": "^2.8|^3.0|^4.0",
+                "symfony/finder": "^2.8|^3.0|^4.0",
+                "symfony/process": "^2.8|^3.0|^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Giggsey\\Locale\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joshua Gigg",
+                    "email": "giggsey@gmail.com",
+                    "homepage": "http://giggsey.com/"
+                }
+            ],
+            "description": "Locale functions required by libphonenumber-for-php",
+            "time": "2020-07-07T11:16:24+00:00"
+        },
+        {
             "name": "graham-campbell/result-type",
             "version": "v1.0.1",
             "source": {
@@ -824,43 +998,37 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.2.0",
+            "version": "6.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79"
+                "reference": "e8ed4dbf49b260ff129ff0e0400718c3269971bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0aa74dfb41ae110835923ef10a9d803a22d50e79",
-                "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e8ed4dbf49b260ff129ff0e0400718c3269971bf",
+                "reference": "e8ed4dbf49b260ff129ff0e0400718c3269971bf",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.4",
-                "guzzlehttp/psr7": "^1.7",
-                "php": "^7.2.5 || ^8.0",
-                "psr/http-client": "^1.0"
-            },
-            "provide": {
-                "psr/http-client-implementation": "1.0"
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.6.1",
+                "php": ">=5.5",
+                "symfony/polyfill-intl-idn": "^1.17.0"
             },
             "require-dev": {
                 "ext-curl": "*",
-                "php-http/client-integration-tests": "^3.0",
-                "phpunit/phpunit": "^8.5.5 || ^9.3.5",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
                 "psr/log": "^1.1"
             },
             "suggest": {
-                "ext-curl": "Required for CURL handler support",
-                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
                 "psr/log": "Required for using the Log middleware"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.1-dev"
+                    "dev-master": "6.5-dev"
                 }
             },
             "autoload": {
@@ -880,11 +1048,6 @@
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Márk Sági-Kazár",
-                    "email": "mark.sagikazar@gmail.com",
-                    "homepage": "https://sagikazarmark.hu"
                 }
             ],
             "description": "Guzzle is a PHP HTTP client library",
@@ -895,8 +1058,6 @@
                 "framework",
                 "http",
                 "http client",
-                "psr-18",
-                "psr-7",
                 "rest",
                 "web service"
             ],
@@ -916,9 +1077,13 @@
                 {
                     "url": "https://github.com/gmponos",
                     "type": "github"
+                },
+                {
+                    "url": "https://github.com/sagikazarmark",
+                    "type": "github"
                 }
             ],
-            "time": "2020-10-10T11:47:56+00:00"
+            "time": "2020-07-02T06:52:04+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1104,16 +1269,16 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.2.102",
+            "version": "v1.2.103",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JayBizzle/Crawler-Detect.git",
-                "reference": "346cfd72d11bb41f15e82654e532dc55360612ac"
+                "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/346cfd72d11bb41f15e82654e532dc55360612ac",
-                "reference": "346cfd72d11bb41f15e82654e532dc55360612ac",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/3efa2860959cc971f17624b40bf0699823f9d0f3",
+                "reference": "3efa2860959cc971f17624b40bf0699823f9d0f3",
                 "shasum": ""
             },
             "require": {
@@ -1148,7 +1313,7 @@
                 "crawlerdetect",
                 "php crawler detect"
             ],
-            "time": "2020-11-04T19:23:01+00:00"
+            "time": "2020-11-23T19:49:25+00:00"
         },
         {
             "name": "jenssegers/agent",
@@ -2581,6 +2746,58 @@
             "time": "2020-10-23T06:02:30+00:00"
         },
         {
+            "name": "nicoswd/php-gpg",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicoSWD/php-gpg.git",
+                "reference": "868cf938c3c03b64c4001acf25ade7b0d8fb43c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicoSWD/php-gpg/zipball/868cf938c3c03b64c4001acf25ade7b0d8fb43c3",
+                "reference": "868cf938c3c03b64c4001acf25ade7b0d8fb43c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "phpseclib/phpseclib": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "nicoSWD\\GPG\\": "src"
+                },
+                "files": [
+                    "src/globals.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-1.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jason Hinkle"
+                },
+                {
+                    "name": "Ian Carroll"
+                },
+                {
+                    "name": "Nicolas Oelgart"
+                }
+            ],
+            "description": "Pure PHP GPG implementation, forked from php-gpg.",
+            "keywords": [
+                "PGP",
+                "gpg"
+            ],
+            "time": "2018-04-09T09:19:41+00:00"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v4.10.2",
             "source": {
@@ -3235,55 +3452,6 @@
                 "psr-14"
             ],
             "time": "2019-01-08T18:20:26+00:00"
-        },
-        {
-            "name": "psr/http-client",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-client.git",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-client/zipball/2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
-                "reference": "2dfb5f6c5eff0e91e20e913f8c5452ed95b86621",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0 || ^8.0",
-                "psr/http-message": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Client\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP clients",
-            "homepage": "https://github.com/php-fig/http-client",
-            "keywords": [
-                "http",
-                "http-client",
-                "psr",
-                "psr-18"
-            ],
-            "time": "2020-06-29T06:28:15+00:00"
         },
         {
             "name": "psr/http-factory",
@@ -6147,6 +6315,61 @@
             "time": "2020-09-14T15:57:31+00:00"
         },
         {
+            "name": "vlucas/valitron",
+            "version": "v1.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/valitron.git",
+                "reference": "9268adeeb48ba155e35dca861f5990283e14eafb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/valitron/zipball/9268adeeb48ba155e35dca861f5990283e14eafb",
+                "reference": "9268adeeb48ba155e35dca861f5990283e14eafb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.5 || ^6.5"
+            },
+            "suggest": {
+                "ext-mbstring": "It can support the multiple bytes string length."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Valitron\\": "src/Valitron"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Simple, elegant, stand-alone validation library with NO dependencies",
+            "homepage": "http://github.com/vlucas/valitron",
+            "keywords": [
+                "valid",
+                "validation",
+                "validator"
+            ],
+            "funding": [
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/vlucas/valitron",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-07-10T08:55:05+00:00"
+        },
+        {
             "name": "voku/portable-ascii",
             "version": "1.5.6",
             "source": {
@@ -6466,16 +6689,16 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "f228dc5112bafc14c77d40a2acc0c48058e184b0"
+                "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/f228dc5112bafc14c77d40a2acc0c48058e184b0",
-                "reference": "f228dc5112bafc14c77d40a2acc0c48058e184b0",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/9aa6c9e289860951e6b4d010c7a841802d015cd8",
+                "reference": "9aa6c9e289860951e6b4d010c7a841802d015cd8",
                 "shasum": ""
             },
             "require": {
@@ -6510,7 +6733,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2020-11-15T20:27:00+00:00"
+            "time": "2020-11-23T09:33:08+00:00"
         },
         {
             "name": "filp/whoops",
@@ -8533,7 +8756,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "guzzlehttp/guzzle": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

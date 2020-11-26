@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Password;
 
 class UserController extends BaseController
 {
@@ -73,9 +73,7 @@ class UserController extends BaseController
         $token = $user->token();
         $token->revoke();
 
-        return response()->json(array(
-            'status' => 'success',
-        ), 200);
+        return $this->sendResponse("", 'Deconnexion réussie.');
     }
 
     public function getUser()
@@ -83,28 +81,74 @@ class UserController extends BaseController
         $user = Auth::user();
 
         if ($user) {
+            $success["user"] = $user;
 
-            return response()->json(array(
-                'user' => $user,
-                'status' => 'success',
-            ), 200);
+            return $this->sendResponse($success, 'Utilisateur');
         } else {
             return $this->sendError('Pas autorisé.', ['error' => 'Unauthorised']);
         }
     }
 
-    public function getUserById($id)
+    public function getUserById(Request $request)
     {
+        $id = $request->id;
         $user = User::find($id);
 
         if ($user) {
 
-            return response()->json(array(
-                'user' => $user,
-                'status' => 'success',
-            ), 200);
+            $success["user"] = $user;
+
+            return $this->sendResponse($success, 'Utilisateur');
         } else {
             return $this->sendError('Pas autorisé.', ['error' => 'Unauthorised']);
         }
+    }
+
+    public function updateUser(Request $request)
+    {
+        $user = new User();
+
+        $user->name = $request->name ?? $user->name;
+        $user->telephone = $request->telephone ?? $user->telephone;
+        $user->fcmToken = $request->fcmToken ?? $user->fcmToken;
+        $user->platform = $request->platform ?? $user->platform;
+
+        $save = $user->save();
+
+        if ($save) {
+            $success["user"] = $user;
+            return $this->sendResponse($success, "Package");
+        } else {
+            return $this->sendError("Echec de mise à jour", ['error' => 'Unauthorised']);
+        }
+    }
+
+    public function forgot()
+    {
+        $credentials = request()->validate(['email' => 'required|email']);
+
+        Password::sendResetLink($credentials);
+
+        return $this->sendResponse("", "Un lien de reinitialisation vous a été envoyé par mail.");
+    }
+
+    public function reset()
+    {
+        $credentials = request()->validate([
+            'email' => 'required|email',
+            'token' => 'required|string',
+            'password' => 'required|string|confirmed'
+        ]);
+
+        $reset_password_status = Password::reset($credentials, function ($user, $password) {
+            $user->password = $password;
+            $user->save();
+        });
+
+        if ($reset_password_status == Password::INVALID_TOKEN) {
+            return $this->sendError("Invalid token provided", ['error' => 'Unauthorised']);
+        }
+
+        return $this->sendResponse("", "Password has been successfully changed");
     }
 }

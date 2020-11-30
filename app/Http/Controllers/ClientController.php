@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Package;
 use App\Models\Vendeur;
 use Illuminate\Http\Request;
+use PDF;
 
 class ClientController extends BaseController
 {
@@ -186,5 +187,24 @@ class ClientController extends BaseController
         } else {
             return $this->sendError("Ce Client n'existe pas reverifiez!!!", ['error' => 'Unauthorised']);
         }
+    }
+
+    public function printPdf()
+    {
+        // retreive all records from db
+        $data = Client::where("valide", "oui")->get();
+
+        $event = Event::where("codeEvent", $data[0]->codeEvent)->first();
+
+        foreach ($data as $client) {
+            $client["event"] = $event->nomEvent;
+        }
+
+        // share data to view
+        view()->share('clients', $data);
+        $pdf = PDF::loadView('clientpdf', $data);
+
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
     }
 }

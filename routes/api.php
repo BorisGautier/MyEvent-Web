@@ -56,4 +56,8 @@ Route::middleware('auth:api')->group(function () {
     Route::post('showpackage', [App\Http\Controllers\PackageController::class, 'showPackage']);
     Route::post('showclient', [App\Http\Controllers\ClientController::class, 'showClient']);
     Route::post('showevent', [App\Http\Controllers\EventController::class, 'showEvent']);
+
+    Route::get('pdfclient', [App\Http\Controllers\ClientController::class, 'printPdf']);
+
+    Route::post('statistique', [App\Http\Controllers\StatistiqueController::class, 'statByEvent']);
 });

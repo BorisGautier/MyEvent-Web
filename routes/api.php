@@ -36,18 +36,22 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('event', App\Http\Controllers\EventController::class);
     Route::resource('package', App\Http\Controllers\PackageController::class);
     Route::resource('client', App\Http\Controllers\ClientController::class);
+    Route::resource('forfait', App\Http\Controllers\ForfaitController::class);
 
 
     Route::post('revoque', [App\Http\Controllers\ClientController::class, 'revoque']);
     Route::post('getclient', [App\Http\Controllers\ClientController::class, 'getClient']);
     Route::post('getpackage', [App\Http\Controllers\PackageController::class, 'getPackage']);
     Route::post('getvendeur', [App\Http\Controllers\VendeurController::class, 'getVendeur']);
+
     Route::post('deletevendeur', [App\Http\Controllers\VendeurController::class, 'deleteVendeur']);
     Route::post('deletepackage', [App\Http\Controllers\PackageController::class, 'deletePackage']);
     Route::post('deleteevent', [App\Http\Controllers\EventController::class, 'deleteEvent']);
+    Route::post('deleteforfait', [App\Http\Controllers\ForfaitController::class, 'deleteForfait']);
 
     Route::post('updateevent', [App\Http\Controllers\EventController::class, 'updateEvent']);
     Route::post('updatepackage', [App\Http\Controllers\PackageController::class, 'updatePackage']);
+    Route::post('updateforfait', [App\Http\Controllers\ForfaitController::class, 'updateForfait']);
 
     Route::post('updateuser', [App\Http\Controllers\Auth\UserController::class, 'updateUser']);
     Route::post('getuser', [App\Http\Controllers\Auth\UserController::class, 'getUser']);
@@ -60,4 +64,6 @@ Route::middleware('auth:api')->group(function () {
     Route::get('pdfclient', [App\Http\Controllers\ClientController::class, 'printPdf']);
 
     Route::post('statistique', [App\Http\Controllers\StatistiqueController::class, 'statByEvent']);
+
+    Route::post('buyforfait', [App\Http\Controllers\ForfaitController::class, 'buyForfait']);
 });

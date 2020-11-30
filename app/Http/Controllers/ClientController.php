@@ -7,8 +7,8 @@ use App\Models\Client;
 use App\Models\Event;
 use App\Models\Package;
 use App\Models\Vendeur;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
-use PDF;
 
 class ClientController extends BaseController
 {

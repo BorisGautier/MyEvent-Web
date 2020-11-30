@@ -66,7 +66,7 @@ class VendeurController extends BaseController
 
             $success["vendeur"] = $vendeur;
 
-            return $this->sendResponse($vendeur, $msg);
+            return $this->sendResponse($success, $msg);
         } else {
             return $this->sendError("Erreur de création du vendeur", ['error' => 'Unauthorised']);
         }

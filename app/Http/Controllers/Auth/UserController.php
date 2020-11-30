@@ -54,6 +54,7 @@ class UserController extends BaseController
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
+            $user = User::find($user->id);
             if ($user->hasVerifiedEmail()) {
                 $success['token'] = $user->createToken('MyEvent')->accessToken;
                 $success['user'] = $user;
@@ -70,6 +71,7 @@ class UserController extends BaseController
     public function logout()
     {
         $user = Auth::user();
+        $user = User::find($user->id);
         $token = $user->token();
         $token->revoke();
 

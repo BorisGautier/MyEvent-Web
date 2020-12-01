@@ -33,6 +33,17 @@ class EventController extends BaseController
         return $this->sendResponse($success, 'Liste des Evenements');
     }
 
+    public function allEvent(Request $request)
+    {
+
+        $ville = $request->ville;
+        $events = Event::where(["ville" => $ville, "public" => "oui"])->get();
+
+        $success["event"] = $events;
+
+        return $this->sendResponse($success, 'Liste des Evenements');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -58,6 +69,7 @@ class EventController extends BaseController
 
         $input = $request->all();
 
+
         $nbreP = $request->nbrePlace;
 
         $chaine = explode(' ', $request->nomEvent);
@@ -71,9 +83,18 @@ class EventController extends BaseController
 
             $tempDir = "qrcode/$name/$path/";
 
+            if ($request->file('cover')->isValid()) {
+                $extension = $request->cover->extension();
+                $path      = $request->cover->storeAs($user->name . '/' . $request->codeEvent . '/cover', 'cover.' . $extension, 'public');
+                $url       = $user->name . '/' . $request->codeEvent . '/cover/' . 'cover.' . $extension;
+            }
+
+
 
 
             $event = Event::create($input);
+            $event->cover = $url ?? null;
+            $event->save();
 
             if ($event) {
                 for ($i = 1; $i < $nbreP + 1; $i++) {
@@ -212,9 +233,27 @@ class EventController extends BaseController
 
     public function updateEvent(Request $request)
     {
-        $event = new Event();
+        $user = Auth::user();
+        $event = Event::find($request->idEvent);
 
         $event->dateEvent = $request->dateEvent ?? $event->dateEvent;
+
+        $event->dateFin = $request->dateFin ?? $event->dateFin;
+        $event->public = $request->public ?? $event->public;
+        $event->lon = $request->lon ?? $event->lon;
+        $event->lat = $request->lat ?? $event->lat;
+        $event->adresse = $request->adresse ?? $event->adresse;
+        $event->siteWeb = $request->siteWeb ?? $event->siteWeb;
+        $event->description = $request->description ?? $event->description;
+        $event->ville = $request->ville ?? $event->ville;
+
+        if ($request->file('cover')->isValid()) {
+            $extension = $request->cover->extension();
+            $path      = $request->cover->storeAs($user->name . '/' . $event->codeEvent . '/cover', 'cover.' . $extension, 'public');
+            $url       = $user->name . '/' . $event->codeEvent . '/cover/' . 'cover.' . $extension;
+        }
+
+        $event->cover = $url ?? $event->cover;
 
         $save = $event->save();
 

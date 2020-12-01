@@ -26,7 +26,7 @@ class SocialFacebookAccountService
                 $user = User::create([
                     'email'    => $providerUser->getEmail(),
                     'name'     => $providerUser->getName(),
-                    'profile_photo_url'   => $file,
+                    'profile_photo_path'   => $file,
                     'token' => $providerUser->token,
                     'password' => md5(rand(1, 10000)),
                 ]);

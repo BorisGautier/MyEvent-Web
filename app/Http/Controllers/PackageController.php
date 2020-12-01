@@ -128,7 +128,8 @@ class PackageController extends BaseController
 
     public function updatePackage(Request $request)
     {
-        $package = new Package();
+        $idPackage = $request->idPackage;
+        $package = Package::find($idPackage);
 
         $package->nomPackage = $request->nomPackage ?? $package->nomPackage;
         $package->prixPlace = $request->prixPlace ?? $package->prixPlace;

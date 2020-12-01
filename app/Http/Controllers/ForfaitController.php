@@ -102,7 +102,9 @@ class ForfaitController extends BaseController
 
     public function updateForfait(Request $request)
     {
-        $forfait = new Forfait();
+        $idForfait = $request->idForfait;
+
+        $forfait = Forfait::find($idForfait);
 
         $forfait->nomForfait = $request->nomForfait ?? $forfait->nomForfait;
         $forfait->prix = $request->prix ?? $forfait->prix;

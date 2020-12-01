@@ -108,18 +108,29 @@ class UserController extends BaseController
 
     public function updateUser(Request $request)
     {
-        $user = new User();
+        $user = Auth::user();
+        $user = User::find($user->id);
 
         $user->name = $request->name ?? $user->name;
         $user->telephone = $request->telephone ?? $user->telephone;
         $user->fcmToken = $request->fcmToken ?? $user->fcmToken;
         $user->platform = $request->platform ?? $user->platform;
 
+        if ($request->file('avatar')->isValid()) {
+            $extension = $request->avatar->extension();
+            $path      = $request->avatar->storeAs($user->name . '/avatar', 'avatar.' . $extension, 'public');
+            $url       =  $user->name . '/avatar/' . 'avatar.' . $extension;
+        }
+
+        $user->profile_photo_path = $url ?? $user->profile_photo_path;
+
+
+
         $save = $user->save();
 
         if ($save) {
             $success["user"] = $user;
-            return $this->sendResponse($success, "Package");
+            return $this->sendResponse($success, "Utilisateur");
         } else {
             return $this->sendError("Echec de mise à jour", ['error' => 'Unauthorised']);
         }

@@ -22,6 +22,15 @@ class CreateEventsTable extends Migration
             $table->integer('nbrePlace')->default(0);
             $table->string('nomEvent');
             $table->string('urlZip')->nullable();
+            $table->string('public')->default("non");
+            $table->date('dateFin')->nullable();
+            $table->double('lon')->nullable();
+            $table->double('lat')->nullable();
+            $table->string('adresse')->nullable();
+            $table->string('siteWeb')->nullable();
+            $table->string('description')->nullable();
+            $table->string('ville')->nullable();
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }

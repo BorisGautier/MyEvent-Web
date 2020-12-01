@@ -26,7 +26,7 @@ class SocialTwitterAccountService
                 $user = User::create([
                     'email'    => $providerUser->getEmail() ?? "No email",
                     'name'     => $providerUser->getName(),
-                    'profile_photo_url'   => $file,
+                    'profile_photo_path'   => $file,
                     'token' => $providerUser->token,
                     'token_secret' => $providerUser->tokenSecret,
                     'password' => md5(rand(1, 10000)),

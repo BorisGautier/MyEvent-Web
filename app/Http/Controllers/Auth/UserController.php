@@ -91,7 +91,7 @@ class UserController extends BaseController
         }
     }
 
-    public function getUserById(Request $request)
+    /* public function getUserById(Request $request)
     {
         $id = $request->id;
         $user = User::find($id);
@@ -104,7 +104,7 @@ class UserController extends BaseController
         } else {
             return $this->sendError('Pas autorisé.', ['error' => 'Unauthorised']);
         }
-    }
+    }*/
 
     public function updateUser(Request $request)
     {

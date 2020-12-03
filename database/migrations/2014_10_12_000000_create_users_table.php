@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('telephone')->nullable();
             $table->string('fcmToken')->nullable();
             $table->string('token')->nullable();
-            $table->string('tokenSecret')->nullable();
+            $table->string('token_secret')->nullable();
             $table->string('nomForfait')->default("gratuit");
             $table->integer('passRestant')->default(50);
             $table->string('platform')->nullable();

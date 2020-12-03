@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [App\Http\Controllers\Auth\UserController::class, 'register']);
 Route::post('login', [App\Http\Controllers\Auth\UserController::class, 'login']);
 
+Route::get('logout', [App\Http\Controllers\Auth\UserController::class, 'logout']);
+
 Route::post('register/facebook', [App\Http\Controllers\Auth\SocialApiAuthFacebookController::class, 'facebookConnect']);
 Route::post('register/twitter', [App\Http\Controllers\Auth\SocialApiAuthTwitterController::class, 'twitterConnect']);
 
@@ -54,8 +56,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('updateforfait', [App\Http\Controllers\ForfaitController::class, 'updateForfait']);
 
     Route::post('updateuser', [App\Http\Controllers\Auth\UserController::class, 'updateUser']);
-    Route::post('getuser', [App\Http\Controllers\Auth\UserController::class, 'getUser']);
-    Route::get('getuserbyid', [App\Http\Controllers\Auth\UserController::class, 'getUserById']);
+    Route::get('getuser', [App\Http\Controllers\Auth\UserController::class, 'getUser']);
 
     Route::post('showpackage', [App\Http\Controllers\PackageController::class, 'showPackage']);
     Route::post('showclient', [App\Http\Controllers\ClientController::class, 'showClient']);

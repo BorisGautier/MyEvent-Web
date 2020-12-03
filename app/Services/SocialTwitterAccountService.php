@@ -31,7 +31,7 @@ class SocialTwitterAccountService
                     'token_secret' => $providerUser->tokenSecret,
                     'password' => md5(rand(1, 10000)),
                 ]);
-                $user->sendEmailVerificationNotification();
+                //  $user->sendEmailVerificationNotification();
             }
             $account->user()->associate($user);
             $account->save();

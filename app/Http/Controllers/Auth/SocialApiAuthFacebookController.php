@@ -14,14 +14,11 @@ class SocialApiAuthFacebookController extends BaseController
         $token = $request->token;
 
         $user = $service->createOrGetUser(Socialite::driver('facebook')->userFromToken($token));
-        if ($user->hasVerifiedEmail()) {
-            auth()->login($user);
-            $token = $user->createToken('MyEvent')->accessToken;
-            $success['token'] = $token;
-            $success['user'] = $user;
-            return $this->sendResponse($success, 'Connexion réussie.');
-        } else {
-            return $this->sendError("Email not verified.", ['error' => 'Unauthorised'], 400);
-        }
+
+        auth()->login($user);
+        $token = $user->createToken('MyEvent')->accessToken;
+        $success['token'] = $token;
+        $success['user'] = $user;
+        return $this->sendResponse($success, 'Connexion réussie.');
     }
 }

@@ -30,7 +30,7 @@ class SocialFacebookAccountService
                     'token' => $providerUser->token,
                     'password' => md5(rand(1, 10000)),
                 ]);
-                $user->sendEmailVerificationNotification();
+                // $user->sendEmailVerificationNotification();
             }
             $account->user()->associate($user);
             $account->save();

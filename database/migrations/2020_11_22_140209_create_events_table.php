@@ -31,6 +31,7 @@ class CreateEventsTable extends Migration
             $table->string('description')->nullable();
             $table->string('ville')->nullable();
             $table->string('cover')->nullable();
+            $table->integer('vues')->default(0);
             $table->timestamps();
         });
     }

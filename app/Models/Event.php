@@ -10,6 +10,6 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
-        "codeEvent", "dateEvent", "idUser", "nbrePackage", "nbrePlace", "nomEvent", "urlZip", "dateFin", "lon", "lat", "adresse", "siteWeb", "description", "ville", "cover"
+        "codeEvent", "dateEvent", "idUser", "nbrePackage", "nbrePlace", "nomEvent", "urlZip", "dateFin", "lon", "lat", "adresse", "siteWeb", "description", "ville", "cover", "vues"
     ];
 }

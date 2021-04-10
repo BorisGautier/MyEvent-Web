@@ -275,4 +275,22 @@ class EventController extends BaseController
         }
         return $string . $randomString;
     }
+
+    public function updateVues(Request $request)
+    {
+        $codeEvent = $request->codeEvent;
+
+        $event = Event::where('codeEvent', $codeEvent)->first();
+
+        $event->vues = $event->vues + 1;
+
+        $save =  $event->save();
+
+        if ($save) {
+            $success["event"] = $event;
+            return $this->sendResponse($success, "Evenement");
+        } else {
+            return $this->sendError("Echec de mise à jour", ['error' => 'Unauthorised']);
+        }
+    }
 }

@@ -66,4 +66,3 @@ jobs:
             cd myevent
             git checkout -f
             git pull origin master
-            php artisan migrate

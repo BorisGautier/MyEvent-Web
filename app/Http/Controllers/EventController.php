@@ -13,8 +13,6 @@ use InvalidArgumentException;
 use QRcode;
 use ZipArchive;
 
-include(app_path() . "\Libraries\phpqrcode\qrlib.php");
-
 class EventController extends BaseController
 {
     /**

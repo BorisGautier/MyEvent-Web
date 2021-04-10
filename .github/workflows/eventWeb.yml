@@ -66,3 +66,4 @@ jobs:
             cd myevent
             git checkout -f
             git pull origin master
+            chmod -R 777 storage bootstrap/cache

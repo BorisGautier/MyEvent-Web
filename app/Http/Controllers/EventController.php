@@ -84,7 +84,7 @@ class EventController extends BaseController
             if ($request->file('cover')->isValid()) {
                 $extension = $request->cover->extension();
                 $path1      = $request->cover->storeAs($user->name . '/' . $request->codeEvent . '/cover', 'cover.' . $extension, 'public');
-                $url       = env("APP_URL") . '/' . $user->name . '/' . $request->codeEvent . '/cover/' . 'cover.' . $extension;
+                $url       = storage_path() . $user->name . '/' . $request->codeEvent . '/cover/' . 'cover.' . $extension;
             }
 
 

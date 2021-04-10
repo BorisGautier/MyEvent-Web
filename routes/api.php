@@ -54,6 +54,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('updateevent', [App\Http\Controllers\EventController::class, 'updateEvent']);
     Route::post('updatepackage', [App\Http\Controllers\PackageController::class, 'updatePackage']);
     Route::post('updateforfait', [App\Http\Controllers\ForfaitController::class, 'updateForfait']);
+    Route::post('updatevues', [App\Http\Controllers\EventController::class, 'updateVues']);
 
     Route::post('updateuser', [App\Http\Controllers\Auth\UserController::class, 'updateUser']);
     Route::get('getuser', [App\Http\Controllers\Auth\UserController::class, 'getUser']);
